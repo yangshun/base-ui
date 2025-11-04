@@ -9,17 +9,10 @@ export default function ExampleToggle() {
         aria-label="Favorite"
         className={styles.Button}
         render={(props, state) => {
-          if (state.pressed) {
-            return (
-              <button type="button" {...props}>
-                <HeartFilledIcon className={styles.Icon} />
-              </button>
-            );
-          }
-
+          const Icon = state.pressed ? HeartFilledIcon : HeartOutlineIcon;
           return (
             <button type="button" {...props}>
-              <HeartOutlineIcon className={styles.Icon} />
+              <Icon className={styles.Icon} />
             </button>
           );
         }}
