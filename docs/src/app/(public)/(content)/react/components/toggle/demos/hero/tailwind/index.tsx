@@ -8,17 +8,10 @@ export default function ExampleToggle() {
         aria-label="Favorite"
         className="flex size-8 items-center justify-center rounded-sm text-gray-600 select-none hover:bg-gray-100 focus-visible:bg-none focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-blue-800 active:bg-gray-200 data-[pressed]:text-gray-900"
         render={(props, state) => {
-          if (state.pressed) {
-            return (
-              <button type="button" {...props}>
-                <HeartFilledIcon className="size-5" />
-              </button>
-            );
-          }
-
+          const Icon = state.pressed ? HeartFilledIcon : HeartOutlineIcon;
           return (
             <button type="button" {...props}>
-              <HeartOutlineIcon className="size-5" />
+              <Icon className={styles.Icon} />
             </button>
           );
         }}
